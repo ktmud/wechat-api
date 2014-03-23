@@ -1,6 +1,6 @@
 {
   "name": "wechat-api",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "wechat official account advance API SDK. 微信高级API接口工具",
   "main": "index.js",
   "scripts": {
