@@ -59,3 +59,8 @@ wechat.getUserInfo({
 ## TODO
 
 - 接口频率限制
+
+
+## License
+
+The MIT license.
