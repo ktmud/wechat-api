@@ -73,6 +73,21 @@ wechat.getUserInfo({
   下载多媒体文件，返回一个 readable stream ，可直接 pipe 到本地文件存储
 
 
+### Events
+
+- **ready** 已获取 access_token，可以开始请求，如果你在初始化时传入了之前存储好的 token ，`ready` 事件会即时触发
+- **refresh** 已获取薪的 access_token
+
+```javascript
+var client = require('wechat-api')('appid', 'secret', 'the-stored-token')
+
+client.on('ready', function() {
+})
+client.on('refresh', function(token) {
+  // token.expire_date ~= +new Date() + 7200 * 10e3
+})
+```
+
 
 ## TODO
 

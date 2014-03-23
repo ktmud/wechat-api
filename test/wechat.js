@@ -5,18 +5,16 @@ var SECRET = '972ba827a38121094268724ce0360f67'
 var GH_ID = 'gh_b1a083fb1739'
 
 describe('Wechat API', function() {
-  var client, token
-
-  before(function(done) {
-    client = require('../index')(KEY, SECRET, token)
-    if (!token) {
-      client.refreshToken(done)
-    } else {
-      done()
-    }
-  })
+  var client = require('../index')(KEY, SECRET)
 
   describe('#refreshToken()', function() {
+    it('should emit refresh event', function(done) {
+      client.refreshToken()
+      client.on('refresh', function(token) {
+        should.exist(token.access_token)
+        done()
+      })
+    })
     it('should reuse token', function(done) {
       var token = client.token
       should.exist(token)
