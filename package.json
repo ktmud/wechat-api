@@ -1,0 +1,35 @@
+{
+  "name": "wechat-api",
+  "version": "0.0.1",
+  "description": "wechat official account advance API SDK. 微信高级API接口工具",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/node-webot/wechat-api"
+  },
+  "dependencies": {
+    "superagent": "0.17.x",
+    "debug": "0.7.x",
+    "methods": "0.1.0"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*"
+  },
+  "keywords": [
+    "wechat",
+    "weixin",
+    "微信",
+    "api",
+    "oauth"
+  ],
+  "author": "ktmud <kissmud@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/node-webot/wechat-api/issues"
+  },
+  "homepage": "https://github.com/node-webot/wechat-api"
+}
