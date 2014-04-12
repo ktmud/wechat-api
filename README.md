@@ -57,6 +57,7 @@ wechat.getUserInfo({
   [删除自定义菜单](http://mp.weixin.qq.com/wiki/index.php?title=%E8%87%AA%E5%AE%9A%E4%B9%89%E8%8F%9C%E5%8D%95%E5%88%A0%E9%99%A4%E6%8E%A5%E5%8F%A3)
 - getUserInfo(args, callback)
   [获取用户信息](http://mp.weixin.qq.com/wiki/index.php?title=%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF)
+  可直接传入 openid 字符串
 - getUserList(args, callback)
   [获取关注者列表](http://mp.weixin.qq.com/wiki/index.php?title=%E8%8E%B7%E5%8F%96%E5%85%B3%E6%B3%A8%E8%80%85%E5%88%97%E8%A1%A8)
 - createQRCode(args, callback)
@@ -76,7 +77,7 @@ wechat.getUserInfo({
 ### Events
 
 - **ready** 已获取 access_token，可以开始请求，如果你在初始化时传入了之前存储好的 token ，`ready` 事件会即时触发
-- **refresh** 已获取薪的 access_token
+- **refresh** 已获取新的 access_token
 
 ```javascript
 var client = require('wechat-api')('appid', 'secret', 'the-stored-token')
