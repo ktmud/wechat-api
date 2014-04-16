@@ -10,7 +10,7 @@ describe('Wechat API', function() {
   describe('#refreshToken()', function() {
     it('should emit refresh event', function(done) {
       client.refreshToken()
-      client.on('refresh', function(token) {
+      client.once('refresh', function(token) {
         should.exist(token.access_token)
         done()
       })
@@ -22,6 +22,15 @@ describe('Wechat API', function() {
       client.deleteMenu(function(err) {
         should.equal(client.token, token)
         should.not.exist(err)
+        done()
+      })
+    })
+    it('can re-refresh token', function(done) {
+      var old = client.access_token
+      client.refreshToken(function(err, token) {
+        should.not.exist(err)
+        should.exist(client.token)
+        should.notEqual(old, client.token)
         done()
       })
     })
