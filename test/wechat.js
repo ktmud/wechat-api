@@ -5,7 +5,7 @@ var SECRET = '972ba827a38121094268724ce0360f67'
 var GH_ID = 'gh_b1a083fb1739'
 
 describe('Wechat API', function() {
-  var client = require('../index')(KEY, SECRET)
+  var client = require('..')(KEY, SECRET)
 
   describe('#refreshToken()', function() {
     it('should emit refresh event', function(done) {
@@ -81,6 +81,17 @@ describe('Wechat API', function() {
           err.errcode.should.eql(46003)
           done()
         })
+      })
+    })
+  })
+
+  describe('only token', function() {
+    it('should be ok with only token', function(done) {
+      var client2 = require('..')(null, null, client.access_token)
+      client.getUserList(function(err, result) {
+        should.not.exist(err)
+        result.data.openid.should.be.an.instanceof(Array)
+        done()
       })
     })
   })
